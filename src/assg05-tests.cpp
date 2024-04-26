@@ -3,9 +3,9 @@
  *   specifically for the implementation of the Clock Algorithm
  *   page replacement scheme.
  *
- * @author Student Name
- * @note   cwid: 123456
- * @date   Fall 2019
+ * @author Victoria Goodroe
+ * @note   cwid: 50340986
+ * @date   Spring 2024
  * @note   ide:  g++ 8.2.0 / GNU Make 4.2.1
  *
  * Unit tests for assignment 04, Clock Algorithm page replacement
