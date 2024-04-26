@@ -169,6 +169,7 @@ public:
   string getRunningProcessName() const;
   bool allProcessesDone() const;
   void dispatchCpuIfIdle();
+  void checkProcessFinished();
 
   // methods for loading or generating page reference streams
   // for the simulation
