@@ -688,3 +688,23 @@ string SchedulingSystem::getRunningProcessName() const
     return "Unknown";
   }
 }
+
+/**
+ * @brief all processes done
+ *
+ * Will check if all the processes in the simulation have
+ * completed or not.
+ *
+ * @returns bool True if the processes are done, false if not.
+ */
+bool SchedulingSystem::allProcessesDone() const
+{
+  for (int pid = 0; pid < numProcesses; pid++)
+  {
+    if (!process[pid].done)
+    {
+      return false;
+    }
+  }
+  return true;
+}
