@@ -1,9 +1,9 @@
 /** @file SchedulingSystem.cpp
  * @brief SchedulingSystem class implementations
  *
- * @author Student Name
- * @note   cwid: 123456
- * @date   Summer 2022
+ * @author Victoria Goodroe
+ * @note   cwid: 50340986
+ * @date   Spring 2024
  * @note   ide:  g++ 8.2.0 / GNU Make 4.2.1
  *
  * Implementation file for our SchedulingSystem class.  The
@@ -625,5 +625,66 @@ void SchedulingSystem::runSimulation(bool verbose)
 
     // display final job statistics as a table
     cout << finalResultsTable() << endl;
+  }
+}
+
+/**
+ * @brief get system time
+ *
+ * Will access and return the system time value.
+ *
+ * @returns int The current system time.
+ */
+int SchedulingSystem::getSystemTime() const
+{
+  return systemTime;
+}
+
+/**
+ * @brief get num processes
+ *
+ * Will access and return the number of processes in
+ * the simulation.
+ *
+ * @returns int The number of processes in the simulation.
+ */
+int SchedulingSystem::getNumProcesses() const
+{
+  return numProcesses;
+}
+
+/**
+ * @brief is cpu idle
+ *
+ * Will check if the cpu is idle or not.
+ *
+ * @returns bool True if the cpu is idle, false if not.
+ */
+bool SchedulingSystem::isCpuIdle() const
+{
+  return (cpu == IDLE);
+}
+
+/**
+ * @brief get running process name
+ *
+ * Will access and return the name of the process that is
+ * currently running on the CPU.
+ *
+ * @returns string The name of the running process or "IDLE".
+ */
+string SchedulingSystem::getRunningProcessName() const
+{
+  if (cpu == IDLE)
+  {
+    return "IDLE";
+  }
+  else if (cpu >= 0 && cpu < numProcesses)
+  {
+    return process[cpu].name;
+  }
+  else
+  {
+    return "Unknown";
   }
 }
