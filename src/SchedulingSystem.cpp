@@ -708,3 +708,27 @@ bool SchedulingSystem::allProcessesDone() const
   }
   return true;
 }
+
+/**
+ * @brief dispatch cpu if idle
+ *
+ * Will check if the CPU is idle or not and dispatch
+ * accordingly.
+ *
+ */
+void SchedulingSystem::dispatchCpuIfIdle()
+{
+  if (isCpuIdle())
+  {
+    Pid nextProcess = policy->dispatch();
+
+    if (nextProcess >= 0 && nextProcess < numProcesses)
+    {
+      cpu = nextProcess;
+      if (process[nextProcess].startTime == NOT_STARTED)
+      {
+        process[nextProcess].startTime = systemTime;
+      }
+    }
+  }
+}
